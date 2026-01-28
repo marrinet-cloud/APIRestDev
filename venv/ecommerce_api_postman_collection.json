@@ -1,0 +1,100 @@
+{
+  "info": {
+    "name": "E-Commerce API",
+    "_postman_id": "e4c12345-acde-4abc-b999-123456789000",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:5000/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"address\": \"123 Main St\",\n  \"email\": \"john@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/users?page=1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/products",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product_name\": \"Mouse\",\n  \"price\": 19.99\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Products",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/products"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/orders",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"order_date\": \"2026-01-25\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Add Product to Order",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:5000/orders/1/add_product/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 2\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Orders for User",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/orders/user/1"
+          }
+        }
+      ]
+    }
+  ]
+}
